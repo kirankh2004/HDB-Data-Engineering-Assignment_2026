@@ -1,0 +1,16 @@
+project:
+  name: HDB Resale ETL
+
+paths:
+  raw: data/raw
+  cleaned: data/cleaned
+  transformed: data/transformed
+  failed: data/failed
+  hashed: data/hashed
+
+datasets:
+  - name: resale_2012_2014
+    dataset_id: d_2d5ff9ea31397b66239f245f57751537
+
+  - name: resale_2015_2016
+    dataset_id: d_ea9ed51da2787afaf8e51f827c304208

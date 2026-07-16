@@ -1,0 +1,47 @@
+HDB DATA PROFILE REPORT
+============================================================
+
+Total Records : 89356
+Total Columns : 11
+
+COLUMN DETAILS
+------------------------------------------------------------
+month                     TimestampType()
+town                      StringType()
+flat_type                 StringType()
+block                     StringType()
+street_name               StringType()
+storey_range              StringType()
+floor_area_sqm            DoubleType()
+flat_model                StringType()
+lease_commence_date       IntegerType()
+resale_price              DoubleType()
+remaining_lease           IntegerType()
+
+NULL COUNTS
+------------------------------------------------------------
+month                     0
+town                      0
+flat_type                 0
+block                     0
+street_name               0
+storey_range              0
+floor_area_sqm            0
+flat_model                0
+lease_commence_date       0
+resale_price              0
+remaining_lease           52203
+
+DISTINCT COUNTS
+------------------------------------------------------------
+month                     58
+town                      26
+flat_type                 7
+block                     2139
+street_name               522
+storey_range              25
+floor_area_sqm            168
+flat_model                20
+lease_commence_date       48
+resale_price              2580
+remaining_lease           51

@@ -1,16 +1,22 @@
-# macOS
-.DS_Store
-
 # Python
 venv/
 __pycache__/
 *.pyc
-
-# Jupyter
 .ipynb_checkpoints/
+.DS_Store
 
-# VS Code
-.vscode/
+# Spark checksum files
+*.crc
 
-# Environment
-.env
+# Keep output folders but ignore generated files
+data/cleaned/*
+!data/cleaned/.gitkeep
+
+data/failed/*
+!data/failed/.gitkeep
+
+data/transformed/*
+!data/transformed/.gitkeep
+
+data/hashed/*
+!data/hashed/.gitkeep
