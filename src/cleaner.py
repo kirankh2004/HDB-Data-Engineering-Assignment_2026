@@ -1,7 +1,7 @@
 """
 cleaner.py
 
-Data cleaning functions.
+Performs data cleaning, lease recalculation, and duplicate removal.
 """
 
 from pyspark.sql.functions import (
@@ -11,13 +11,17 @@ from pyspark.sql.functions import (
     month,
     floor,
     concat,
-    lit
+    lit,
+    row_number,
+    desc,
 )
+
+from pyspark.sql.window import Window
 
 
 def recompute_remaining_lease(df):
     """
-    Recompute remaining lease assuming HDB lease is 99 years.
+    Recalculate the remaining lease based on a 99-year lease period.
     """
 
     current_year = year(current_date())
@@ -47,14 +51,13 @@ def recompute_remaining_lease(df):
     )
 
 
-from pyspark.sql.window import Window
-from pyspark.sql.functions import row_number, desc, lit
 
 
 def remove_duplicate_records(df):
     """
-    Keep the highest resale_price for duplicate records.
-    Duplicate key = all columns except resale_price.
+    Remove duplicate records by retaining the record with the highest resale price.
+    Duplicate records are identified using all business key columns except `resale_price`.
+    
     """
 
     business_key = [

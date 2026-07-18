@@ -4,8 +4,6 @@ loader.py
 Loads all raw HDB resale datasets into a single master DataFrame.
 """
 
-from pathlib import Path
-
 from pyspark.sql import DataFrame
 
 from src.config import RAW_PATH

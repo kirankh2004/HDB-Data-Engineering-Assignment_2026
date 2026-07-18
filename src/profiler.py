@@ -1,12 +1,12 @@
 """
 profiler.py
 
-Generates basic data profiling report.
+Generate a text-based profiling report containing dataset statistics,
+schema details, null counts, and distinct value counts.
 """
 
-from pathlib import Path
 
-from pyspark.sql.functions import col, count, when
+from pyspark.sql.functions import col,
 
 from src.config import REPORTS_PATH
 

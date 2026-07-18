@@ -46,6 +46,9 @@ def write_transformed(df):
 
 
 def write_hashed(df):
+    """
+    Write the hashed dataset to the hashed output directory.
+    """
 
     (
         df.write

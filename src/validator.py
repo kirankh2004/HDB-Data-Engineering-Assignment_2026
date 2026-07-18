@@ -1,7 +1,7 @@
 """
 validator.py
 
-Validates HDB resale dataset based on statistical properties.
+Performs data validation and anomaly detection on the HDB resale dataset.
 """
 
 from pyspark.sql.functions import col, lit
@@ -9,9 +9,11 @@ from pyspark.sql.functions import col, lit
 
 def validate_dataset(df):
     """
+    Validate the dataset and separate valid and invalid records.
+
     Returns:
-        clean_df
-        failed_df
+        valid_df: Records that pass all validation checks.
+        failed_df: Records that fail one or more validation checks.
     """
 
     # Valid values derived from the dataset
@@ -37,12 +39,15 @@ def validate_dataset(df):
 
 
 
-from pyspark.sql.functions import lit, col
 
 
 def detect_price_anomalies(df):
     """
-    Detect resale price anomalies using IQR.
+    Detect resale price anomalies using the Interquartile Range (IQR) method.
+
+    Returns:
+        clean_df: Records with resale prices within the acceptable IQR range.
+        failed_df: Records identified as anomalous resale price outliers.
     """
 
     q1, q3 = df.approxQuantile("resale_price", [0.25, 0.75], 0.01)

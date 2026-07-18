@@ -1,3 +1,9 @@
+"""
+hasher.py
+
+Applies SHA-256 hashing to the generated resale identifier.
+"""
+
 from pyspark.sql.functions import sha2, col
 
 

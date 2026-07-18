@@ -1,3 +1,9 @@
+"""
+transformer.py
+
+Performs business transformations on the HDB resale dataset.
+"""
+
 from pyspark.sql import Window
 from pyspark.sql.functions import (
     avg,
@@ -14,6 +20,9 @@ from pyspark.sql.functions import (
 
 
 def generate_resale_identifier(df):
+    """
+    Generate a unique resale identifier using selected business attributes.
+    """
 
     window_spec = Window.partitionBy(
         "month",
