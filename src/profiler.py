@@ -6,7 +6,7 @@ schema details, null counts, and distinct value counts.
 """
 
 
-from pyspark.sql.functions import col,
+from pyspark.sql.functions import col
 
 from src.config import REPORTS_PATH
 
